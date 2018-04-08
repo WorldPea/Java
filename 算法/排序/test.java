@@ -64,7 +64,7 @@ public class test {
 		Merge_sort(arr,l,middle);
 		Merge_sort(arr,middle+1,r);
 		Merge(arr,l,middle,r);
-	}Merge_sort
+	}
 	static void Insert_sort(int[] arr){  //≤Â»Î≈≈–Ú
 		int temp;
 		for(int i=1;i<arr.length;i++){
