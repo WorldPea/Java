@@ -62,8 +62,67 @@ class LinkList{
 		}
 		return length;
 	}
+	
+	public Node removeNthFromEnd(int n) {  //有问题版本，假如链表为[1],删除第1个节点则会出现错误
+		/*从列表结尾删除第N个节点
+		 * 给定一个链表，从列表末尾删除第n 个节点并返回它的头部。
+		 * 例如，
+		 * 给定链表：1-> 2-> 3-> 4-> 5，并且n = 2。
+		 * 从结尾删除第二个节点后，链表将变为1-> 2-> 3-> 5。
+		 */
+        int i = length() - n;
+        Node tmp = head;
+        if(i == 0&&length()==1){
+        	head = null;
+        }else{
+        while(i>1){
+        	tmp = tmp.next;
+        	i--;
+        }
+        tmp.next = tmp.next.next;
+        }
+        return tmp;
 
-    public Node ReverseIteratively(Node head) {//链表反转
+    }
+
+	public Node reverseList() {
+	        Node pre = null;
+	        Node now = head;
+	        while(now != null){
+	            Node newNode = now.next;
+	            now.next = pre;
+	            pre = now;
+	            now = newNode;
+	        }
+	        return pre;
+	    }
+	/*public Node removeNthFromEnd(int n){
+		 * 从列表结尾删除第N个节点
+		 * 给定一个链表，从列表末尾删除第n 个节点并返回它的头部。
+		 * 例如，
+		 * 给定链表：1-> 2-> 3-> 4-> 5，并且n = 2。
+		 * 从结尾删除第二个节点后，链表将变为1-> 2-> 3-> 5。
+		 * 
+		 
+		Node fast = head;
+		Node slow = head;
+		Node preNode = null;
+		for(int i=0;i<=n;i++){
+			preNode = fast;
+			fast = fast.next;
+		}	
+		if(fast == null){
+			fast = preNode;
+		}
+		while(fast != null){
+			fast = fast.next;
+			slow = slow.next;
+		}
+		slow.next = slow.next.next;
+		return head;
+	}
+
+    public Node ReverseIteratively() {//链表反转
         Node pReversedHead = head;
         Node pNode = head;
         Node pPrev = null;
@@ -78,7 +137,5 @@ class LinkList{
         }
         this.head = pReversedHead;
         return this.head;
-    }
-    
-    
+    }*/
 }

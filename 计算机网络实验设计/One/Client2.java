@@ -32,8 +32,7 @@ public class Client2 {
 			BufferedReader buffread = new BufferedReader(new InputStreamReader(System.in));
 			String readline = buffread.readLine();
 			while(!readline.equals("bye")){
-				doutput.writeUTF(this.name + ": " + readline);
-				System.out.println(this.name + ": " + readline);
+				doutput.writeUTF(readline);
 				doutput.flush();
 				System.out.println("server: 转换大写为->" + dinput.readUTF());
 	            readline = buffread.readLine(); // 从系统标准输入读入一字符串

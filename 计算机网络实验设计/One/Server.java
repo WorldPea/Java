@@ -54,16 +54,13 @@ class ServerThread implements Runnable{
 	@Override
 	public void run(){
 		// TODO Auto-generated method stub
-		int client_say;
+		String client_say;
 		String change;
 		try{
 			while(true){
 				/*将客户端传来的消息转换*/
-				client_say = dinput.read();
-				
-				System.out.println(client_say);
-				System.out.print(client_say);
-				/*if(client_say.equals("bye")){
+				client_say = dinput.readUTF();
+				if(client_say.equals("bye")){
 					System.out.println("客户端说拜拜!");
 					break;
 				}else{
@@ -72,11 +69,11 @@ class ServerThread implements Runnable{
 					doutput.writeUTF(change);
 					System.out.println("server: 转换大写为->" + change);
 					doutput.flush();
-				}*/
+				}
 			}
-			//doutput.close();
-			//dinput.close();
-			//s.close();
+			/*doutput.close();
+			dinput.close();
+			s.close();*/
 		}catch(Exception e){
 			System.out.println("连接断开："+e.getMessage());
 		}
